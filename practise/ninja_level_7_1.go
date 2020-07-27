@@ -8,6 +8,7 @@ type person struct {
 }
 func changeMe(p *person) {
 	(*p).last = "Kumar"
+	p.first = "PK"
 }
 func main() {
 	s := 2
