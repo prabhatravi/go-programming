@@ -38,7 +38,5 @@ func send(e, o, q chan<- int) {
 			o <- i
 		}
 	}
-	close(e)
-	close(o)
 	q <- 0
 }
