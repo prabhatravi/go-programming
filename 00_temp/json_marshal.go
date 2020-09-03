@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -15,5 +16,12 @@ func main() {
 	fmt.Println("person: ", person)
 
 	// To print key:value use %+v
-	fmt.Printf("person: %+v", person)
+	fmt.Printf("person: %+v\n", person)
+
+	byteArray, err := json.Marshal(person)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(byteArray))
 }
