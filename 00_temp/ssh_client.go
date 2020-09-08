@@ -36,7 +36,11 @@ func (client *SSHClient) RunCommand(cmd *SSHCommand) error {
 		return err
 	}
 	defer session.Close()
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> d1b8c0bea8bf1a74648b24c1f7603102e15108c8
 	if err = client.prepareCommand(session, cmd); err != nil {
 		return err
 	}
