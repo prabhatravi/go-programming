@@ -1,17 +1,17 @@
 package main
 
 import (
-"io/ioutil"
-"log"
-"fmt"
-"os"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
 )
 
 func exampleReadAll() {
 	file, err := os.Open("input.txt")
 	if err != nil {
 		log.Panicf("failed reading file: %s", err)
-		}
+	}
 	defer file.Close()
 	data, err := ioutil.ReadAll(file)
 	fmt.Printf("\nLength: %d bytes", len(data))
@@ -39,21 +39,23 @@ func exampleReadFile() {
 }
 
 func writeFile() {
-f, err := os.Create("data.txt")
+	f, err := os.Create("data.txt")
 
-if err != nil {
-log.Fatal(err)
-}
+	if err != nil {
+		log.Fatal(err)
+	}
 
-defer f.Close()
+	defer f.Close()
 
-_, err2 := f.WriteString("old falcon\n")
+	len, err2 := f.WriteString("old falcon\n")
 
-if err2 != nil {
-log.Fatal(err2)
-}
+	if err2 != nil {
+		log.Fatal(err2)
+	}
 
-fmt.Println("done")
+	fmt.Println("done")
+	fmt.Printf("\nLength: %d bytes", len)
+	fmt.Printf("\nError: %v\n", err)
 }
 
 func main() {
