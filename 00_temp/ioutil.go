@@ -38,22 +38,27 @@ func exampleReadFile() {
 	fmt.Printf("\nError: %v", err)
 }
 
+func writeFile() {
+f, err := os.Create("data.txt")
+
+if err != nil {
+log.Fatal(err)
+}
+
+defer f.Close()
+
+_, err2 := f.WriteString("old falcon\n")
+
+if err2 != nil {
+log.Fatal(err2)
+}
+
+fmt.Println("done")
+}
+
 func main() {
-	f, err := os.Create("input.txt")
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer f.Close()
-
-	_, err2 := f.WriteString("old falcon\n")
-
-	if err2 != nil {
-		log.Fatal(err2)
-	}
-
-	fmt.Println("done")
+	fmt.Printf("########Demo of writeFile function#########\n")
+	writeFile()
 	fmt.Printf("########Demo of ReadAll function#########\n")
 	exampleReadAll()
 
