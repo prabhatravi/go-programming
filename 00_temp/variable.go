@@ -5,8 +5,11 @@ import "fmt"
 var a int = 5
 var b string = "Prabhat Ravi"
 var c bool = true
+
 type d int
+
 var e d
+
 func main() {
 	fmt.Println("a", a)
 	fmt.Println("b", b)

@@ -6,14 +6,14 @@ import (
 )
 
 type Person struct {
-	Name  string `json:"name"`
+	Name       string     `json:"name"`
 	Profession Profession `json:"profession"`
 }
 
 type Profession struct {
-	Hobby     string  `json:"hobby"`
-	Age       int  `json:"age"`
-	Developer bool `json:"is_developer"`
+	Hobby     string `json:"hobby"`
+	Age       int    `json:"age"`
+	Developer bool   `json:"is_developer"`
 }
 
 func main() {

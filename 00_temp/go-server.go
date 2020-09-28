@@ -12,7 +12,7 @@ type HttpHandler struct{}
 // implement `ServeHTTP` method on `HttpHandler` struct
 func (h HttpHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 
-	hostname,err := os.Hostname()
+	hostname, err := os.Hostname()
 	if err != nil {
 		fmt.Println("Failed to get hostname")
 	}

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json" // Encoding and Decoding Package
+	"fmt"
 )
 
 func main() {
@@ -11,7 +11,7 @@ func main() {
 	emp["name"] = "Mark Taylor"
 	emp["jobtitle"] = "Software Developer"
 	emp["phone"] = map[string]interface{}{
-		"home": "123-466-799",
+		"home":   "123-466-799",
 		"office": "564-987-654",
 	}
 	emp["email"] = "markt@gmail.com"

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-
 )
 
 // MyStruct is an example structure for this program.
@@ -16,7 +15,7 @@ type MyStruct struct {
 func main() {
 	filename := "myFile.json"
 	err := checkFile(filename)
-    fmt.Println(err)
+	fmt.Println(err)
 	file, err := ioutil.ReadFile(filename)
 	fmt.Println(err)
 	data := []MyStruct{}
