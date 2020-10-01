@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 )
 
-func findFile(targetDir string, pattern string) {
+func findFile(targetDir string, fileName string) {
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
-		if err == nil && (info.Name() == pattern) {
+		if err == nil && (info.Name() == fileName) {
 			println(path)
 		}
 		return nil
@@ -27,8 +27,8 @@ func main() {
 	}
 
 	targetDirectory := os.Args[1] // get the target directory
-	var pattern string
-	pattern = os.Args[2]
+	var fileName string
+	fileName = os.Args[2]
 
-	findFile(targetDirectory, pattern)
+	findFile(targetDirectory, fileName)
 }
