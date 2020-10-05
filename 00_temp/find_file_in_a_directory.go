@@ -11,6 +11,7 @@ func findFile(targetDir string, fileName string) {
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
 		if err == nil && (info.Name() == fileName) {
 			println(path)
+			return err
 		}
 		return nil
 	})
