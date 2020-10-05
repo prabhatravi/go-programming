@@ -7,10 +7,12 @@ import (
 	"path/filepath"
 )
 
-func findFile(targetDir string, fileName string) {
+func findFile(targetDir, fileName string) string {
+	var pathName string
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
 		if err == nil && (info.Name() == fileName) {
 			println(path)
+			pathName = path
 			return err
 		}
 		return nil
@@ -18,6 +20,7 @@ func findFile(targetDir string, fileName string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	return pathName
 }
 
 func main() {
@@ -31,5 +34,7 @@ func main() {
 	var fileName string
 	fileName = os.Args[2]
 
-	findFile(targetDirectory, fileName)
+	var pathName string
+	pathName = findFile(targetDirectory, fileName)
+	fmt.Println(pathName)
 }
