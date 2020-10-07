@@ -1,12 +1,18 @@
 package main
 
 import (
+	"archive/tar"
+	"flag"
+	"fmt"
+	"io"
 	"log"
 	"os"
+	"github.com/xi2/xz"
+	"path/filepath"
 )
 
 //UntarTarXZ will extract xz compressed files to xpath directory
-func UntarTarXZ(tarFileName, xpath string) (err error) {
+func untarTarXZ(tarFileName, xpath string) (err error) {
 	f, err := os.Open(tarFileName)
 	if err != nil {
 		log.Println("Could not open tarFileName: ", tarFileName)
@@ -72,4 +78,19 @@ func UntarTarXZ(tarFileName, xpath string) (err error) {
 	}
 
 	return nil
+}
+
+func main() {
+	flag.Parse()
+
+	sourceFile := flag.Arg(0)
+
+	if sourceFile == "" {
+		fmt.Println("Dude, you didn't pass in a tar file!")
+		os.Exit(1)
+	}
+
+	fmt.Println("arg 1: ", flag.Arg(0))
+
+	untarTarXZ(flag.Arg(0), "/tmp")
 }
