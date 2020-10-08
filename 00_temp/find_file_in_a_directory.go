@@ -15,7 +15,7 @@ func findFile(targetDir, fileName string) string {
 			pathName = path
 			return err
 		}
-		return nil
+		return err
 	})
 	if err != nil {
 		log.Fatal(err)
